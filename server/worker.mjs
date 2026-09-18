@@ -34,7 +34,11 @@ export default {
     if (/(^|\/)\./.test(path) || /^\/(server|tests|docs)(\/|$)/.test(path) || /\.(?:md|toml|jsonc|map|pem|key|log|env)$/i.test(path) || /^\/(?:wrangler|package|package-lock)\./.test(path)) {
       return secure(new Response('Not found',{status:404}));
     }
-    const response = await env.ASSETS.fetch(request);
+    // With html_handling:none the asset binding requires the actual index file.
+    // Keep public directory URLs while resolving their index internally.
+    const assetUrl = new URL(url);
+    if (assetUrl.pathname.endsWith('/')) assetUrl.pathname += 'index.html';
+    const response = await env.ASSETS.fetch(new Request(assetUrl, request));
     return secure(response);
   }
 };

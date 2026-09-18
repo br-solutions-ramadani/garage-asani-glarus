@@ -2,6 +2,14 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../server/worker.mjs';
 const env={ASSETS:{fetch:async()=>new Response('<html>Garage Asani</html>',{headers:{'Content-Type':'text/html'}})}};
+test('root and service directories resolve actual index assets',async()=>{
+ for(const path of ['/','/leistungen/service-wartung/']){
+  let resolved;
+  const assets={ASSETS:{fetch:async request=>{resolved=new URL(request.url).pathname;return new Response('OK');}}};
+  const response=await worker.fetch(new Request('https://garage-asani-glarus.ch'+path),assets);
+  assert.equal(response.status,200);assert.equal(resolved,path+'index.html');
+ }
+});
 test('HTTP, www and preview domains redirect while preserving path/query',async()=>{
  for(const host of ['http://garage-asani-glarus.ch','https://www.garage-asani-glarus.ch','https://garage-asani-glarus.c5ymf6mzyn.workers.dev']){
   const r=await worker.fetch(new Request(host+'/kontakt.html?ref=test'),env);
