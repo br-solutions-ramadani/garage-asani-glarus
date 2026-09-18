@@ -39,14 +39,18 @@ Durchgeführte Schritte und Anbieterantworten intern knapp festhalten. Dem Betro
 
 ## Cloudflare: getrennte Prüfung
 
-Die Projektkonfiguration setzt `observability.enabled` auf `false`. Im aktuellen Dashboard unter **Workers & Pages → garage-asani-glarus → Observability** den Zustand der Worker-Protokollierung prüfen. Keine Protokollierung eigens für diese Kontrolle einschalten. [Cloudflare-Anleitung](https://developers.cloudflare.com/workers/observability/logs/workers-logs/).
+Die Projektkonfiguration setzt `observability.enabled` auf `false`. Nutzer-Screenshot `IMG_3842.png` vom 18. September 2026 (sichtbare Uhrzeit 18:48) bestätigt für `garage-asani-glarus` unter **Observability** die Meldung „Workers Observability is Disabled“. Keine Aktivierung erforderlich. Der Hinweis auf 200.000 Ereignisse pro Tag beschreibt das Tarifkontingent, nicht eine gemessene Anzahl gespeicherter Ereignisse. [Cloudflare-Anleitung](https://developers.cloudflare.com/workers/observability/logs/workers-logs/).
 
 Das ersetzt nicht die Prüfung anderer Cloudflare-Sicherheitsprotokolle, Log-Exporte, Aufbewahrung und vertraglicher Verarbeitung. SSL/TLS „Full (Strict)“ beschreibt Verschlüsselung zum Origin und ist kein Nachweis über IP-Speicherung. Eine Zusage „Cloudflare speichert keinerlei IP-Adressen“ ist nicht belegt.
+
+Cloudflares [Datenschutzerklärung](https://www.cloudflare.com/privacypolicy/) nennt bei Endnutzern unter anderem IP-Adressen und Verkehrsdaten. Für die allgemeine Aufbewahrung nennt sie Zweck und weitere Kriterien statt einer einheitlichen Frist. Die [Security-Events-Dokumentation](https://developers.cloudflare.com/waf/analytics/security-events/) beschreibt Sicherheitsereignisse mit möglichen IP-Angaben und getrennte Datenbestände: im Free-Tarif 24 Stunden für Security Events und sieben Tage für Security Analytics. Das sind Angaben zu diesen Beständen, keine Zusage über sämtliche Datenkopien oder Cloudflare-internen Systeme. Der Free-Hinweis im Worker-Screenshot belegt zudem nicht den Tarif der Domain.
+
+Nächste Kontrolle im Domain-Bereich: `garage-asani-glarus.ch` → **Security → Analytics → Events**. Vorhandene Sicherheitsereignisse und etwaige Exporte prüfen. Eine leere Ereignisliste ist kein Beweis für fehlende Verarbeitung. Sicherheitsfunktionen nicht allein zur Vermeidung sichtbarer Einträge abschalten. Früher gespeicherte Worker-Logs werden durch die aktuelle Disabled-Anzeige nicht rückwirkend als gelöscht nachgewiesen.
 
 ## Noch offen
 
 - Praktischer Ablauf im tatsächlichen GMX-Postfach und Identifikation vorhandener lokaler Kopien/Backups.
 - FormSubmit-Anbieterantwort, Vertragsgrundlage und Verarbeitungsstaaten.
-- Aktuelle Cloudflare-Einstellungen und deren verbleibende Datenverarbeitung.
+- Cloudflare-Sicherheitsereignisse, Exporte, frühere Logs und verbleibende Datenverarbeitung; die deaktivierte Worker-Observability ist nun anhand des Nutzer-Screenshots bestätigt.
 
 Es wurden im Rahmen dieser Vorbereitung keine Kundendaten gelöscht und keine Nachrichten an Anbieter oder Kunden versendet.

@@ -9,7 +9,7 @@ Stand: 18. September 2026. Technische Veröffentlichung umgesetzt; endgültige �
 - Hosting: Cloudflare Worker `garage-asani-glarus`, GitHub-Verbindung durch erfolgreichen Cloudflare-Build nachgewiesen.
 - DNS: `joaquin.ns.cloudflare.com`, `ruth.ns.cloudflare.com`. Domainregistrierung bleibt bei GoDaddy.
 - Ausgangspunkt der Datenschutzergänzung: Commit `56654a2cc0f7c342e77ef365a7758e6a331d9296`, Release `20260918-3`; Cloudflare-Build erfolgreich. Die damals abschliessend geänderten 15 Seiten-/CSS-Dateien wurden bytegleich mit der Live-Version geprüft.
-- Datenschutzergänzung, Release `20260918-4`: Anbieterinformationen, direkte Auskunfts-/Löschkontakte und Betriebsablauf ergänzt. Vier Worker-Tests sowie HTML-Anker und Mailto-Ziele vor Veröffentlichung erfolgreich geprüft. Den zugehörigen Cloudflare-Build und den Live-Inhalt nach Veröffentlichung separat kontrollieren.
+- Datenschutzergänzung, Release `20260918-4`, Commit `54cdb0333d10fc06ac04e15702cfa386617ebeb6`: Anbieterinformationen, direkte Auskunfts-/Löschkontakte und Betriebsablauf ergänzt. Vier Worker-Tests sowie HTML-Anker und Mailto-Ziele erfolgreich geprüft. Cloudflare-Check des genauen Commits erfolgreich; aktualisierte Texte, Kontaktlinks und Release-Kennung im Live-Browser bestätigt. Keine horizontale Überbreite bei 1348 CSS-Pixeln. Direkter Abruf aus der Prüfumgebung lieferte 403; für dieses Update wird deshalb kein erneuter Bytevergleich behauptet.
 - Öffentliche Kontaktadresse bleibt `garage.asani@gmx.ch`. Keine neue Domain-Mail eingerichtet.
 - Website-Code enthält keine Datenbank, Anmeldung, Zahlung oder administrative Schreibfunktion. Formulare gehen per HTTPS an FormSubmit und von dort an GMX.
 
@@ -36,6 +36,7 @@ Stand: 18. September 2026. Technische Veröffentlichung umgesetzt; endgültige �
 - Desktop-Browser: Startseite, Leistungsübersicht, Leistungsdetail und Kontaktformular geöffnet; keine horizontale Überbreite bei 1348 CSS-Pixeln. Hintergrundbilder nach vollständigem Laden sichtbar.
 - Browser: Navigation über echte Links; leere Pflichtfelder blockieren das Absenden; falsche E-Mail wird als ungültig erkannt; Cookie-Hinweis öffnet/schliesst und gibt Fokus zurück; Markenlauf pausiert; Sprunglink fokussiert den Hauptinhalt.
 - Keine echte Formularnachricht versendet, kein Empfang im GMX-Postfach behauptet.
+- Nutzer-Screenshot `IMG_3842.png` vom 18. September 2026, sichtbare Uhrzeit 18:48: Projekt `garage-asani-glarus`, Register Observability, Meldung „Workers Observability is Disabled“. Der Zustand im Dashboard stimmt mit `observability.enabled: false` überein. Das belegt weder die Löschung früherer Logs noch das Abschalten anderer Cloudflare-Protokolle.
 - Mobile CSS-Regeln geprüft und verbessert. Ein vollständiger visueller Test bei Smartphone-Breite und auf iOS/Android konnte mit dem verfügbaren Browserzugang nicht durchgeführt werden. Kein vollständiger Barrierefreiheitsnachweis.
 
 ## Die 20 Punkte aus der Vorlage
