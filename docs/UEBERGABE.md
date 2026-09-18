@@ -8,6 +8,7 @@ Stand: 18. September 2026. Technische Veröffentlichung umgesetzt; endgültige �
 - Quellcode: https://github.com/br-solutions-ramadani/garage-asani-glarus, Branch `main`.
 - Hosting: Cloudflare Worker `garage-asani-glarus`, GitHub-Verbindung durch erfolgreichen Cloudflare-Build nachgewiesen.
 - DNS: `joaquin.ns.cloudflare.com`, `ruth.ns.cloudflare.com`. Domainregistrierung bleibt bei GoDaddy.
+- Veröffentlichter Website-Stand: Commit `56654a2cc0f7c342e77ef365a7758e6a331d9296`, Release `20260918-3`; Cloudflare-Build erfolgreich. Die abschliessend geänderten 15 Seiten-/CSS-Dateien wurden erneut bytegleich mit der Live-Version geprüft.
 - Öffentliche Kontaktadresse bleibt `garage.asani@gmx.ch`. Keine neue Domain-Mail eingerichtet.
 - Website-Code enthält keine Datenbank, Anmeldung, Zahlung oder administrative Schreibfunktion. Formulare gehen per HTTPS an FormSubmit und von dort an GMX.
 
@@ -63,7 +64,7 @@ Stand: 18. September 2026. Technische Veröffentlichung umgesetzt; endgültige �
 
 ## Offene Voraussetzungen für die endgültige Übergabe
 
-1. **Kontozugriffe:** GitHub fordert erneute Kontobestätigung für Mitarbeiterliste und sensible Einstellungen. Cloudflare-Dashboard wird durch eine Sicherheitsprüfung blockiert. Mitglieder, Tokens, installierte Apps, Zwei-Faktor-Schutz und Wiederherstellung sind daher nicht vollständig geprüft. Das Repository ist derzeit öffentlich lesbar. Öffentlich lesbar bedeutet nicht öffentlich beschreibbar, ermöglicht aber Kopieren des Codes. Privatschaltung und Abschaltung der zusätzlichen GitHub-Pages-Veröffentlichung sind noch offen.
+1. **Kontozugriffe:** Nach erfolgreicher GitHub-Kontobestätigung geprüft: 0 zusätzliche Mitarbeiter, 0 Deploy-Schlüssel; installierte Apps sind ChatGPT Codex Connector und Cloudflare Workers and Pages. Cloudflare-Dashboard wird weiterhin durch eine Sicherheitsprüfung blockiert. Cloudflare-Mitglieder sowie kontoübergreifende Tokens, Zwei-Faktor-Schutz und Wiederherstellung sind nicht vollständig geprüft. Das Repository ist öffentlich lesbar, aber nicht öffentlich beschreibbar. Die automatische Freigabeprüfung hat sowohl die Privatschaltung als auch die Deaktivierung der zusätzlichen GitHub-Pages-Seite abgelehnt und verlangt ausdrückliche Zustimmung zu diesen konkreten Änderungen. Beide Einstellungen wurden deshalb nicht geändert. GitHub nennt für die Privatschaltung das Abschalten von Advanced Security und die Abtrennung vorhandener öffentlicher Forks. Beim Abschalten von Pages wäre nur die zusätzliche github.io-Adresse nicht mehr erreichbar; die nachgewiesene Cloudflare-Hauptdomain bleibt separat gehostet.
 2. **Formularzustellung:** FormSubmit-Aktivierung und ein bewilligter Test bis zum tatsächlichen Eingang im GMX-Postfach. Frontend-Validierung allein beweist keine Zustellung.
 3. **Formulardatenschutz:** Verantwortlicher, Verarbeitungsorte, Aufbewahrung und vertragliche Grundlage von FormSubmit bestätigen. Die verlinkte Datenschutz-PDF war bei der Prüfung nicht zuverlässig abrufbar. Keine Freigabe als vollständig datenschutzrechtlich geprüft.
 4. **Inhalte und Rechte:** Mensur/Mensud klären, Öffnungszeiten/Leistungen bestätigen, Rechte an Bildern dokumentieren. Das Impressum verwendet den im SHAB belegten Namen Mensud.
