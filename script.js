@@ -1,24 +1,113 @@
-const button=document.querySelector('.menu');const nav=document.querySelector('.header nav');if(button&&nav){button.addEventListener('click',()=>{const open=nav.classList.toggle('open');button.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');button.setAttribute('aria-expanded','false')}))}
-if('serviceWorker'in navigator){navigator.serviceWorker.getRegistrations().then(items=>items.forEach(item=>item.unregister()))}if('caches'in window){caches.keys().then(keys=>keys.forEach(key=>caches.delete(key)))}
-document.querySelectorAll('a[href$=".html"],a[href*=".html#"]').forEach(a=>{const l=document.createElement('link');l.rel='prefetch';l.href=a.href;document.head.appendChild(l)});
-const tilt=document.querySelector('[data-tilt]');if(tilt&&matchMedia('(pointer:fine)').matches){tilt.addEventListener('mousemove',e=>{const r=tilt.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;tilt.style.transform=`perspective(1100px) rotateX(${-y*5}deg) rotateY(${x*7}deg)`});tilt.addEventListener('mouseleave',()=>tilt.style.transform='perspective(1100px) rotateX(0) rotateY(0)')}
-const motionOK=!matchMedia('(prefers-reduced-motion: reduce)').matches;const revealItems=[...document.querySelectorAll('.section-title,.intro-copy,.intro-visual,.trust-head,.trust article,.service-list a,.service-card,.statement>*,.cta>*,.page-hero>div,.content-title,.content-copy,.value-card,.detail-card,.service-photo-grid figure,.service-detail,.gallery-copy,.photo-stack,.contact-info,.contact-form-wrap,.thank-you,.service-scope,.service-process,.service-promise>*,.service-faq>*,.service-contact>*,.related-services>*,.footer>div')];revealItems.forEach((item,index)=>{item.classList.add('reveal');if(index%4===1)item.classList.add('reveal-left');if(index%4===3)item.classList.add('reveal-right');item.style.transitionDelay=`${Math.min(index%4,3)*65}ms`});if(motionOK&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -5% 0px'});revealItems.forEach(item=>observer.observe(item))}else{revealItems.forEach(item=>item.classList.add('is-visible'))}
+'use strict';
+const menuButton = document.querySelector('.menu');
+const navigation = document.querySelector('.header nav');
+const closeMenu = () => {
+  navigation?.classList.remove('open');
+  menuButton?.setAttribute('aria-expanded', 'false');
+  menuButton?.setAttribute('aria-label', 'Menü öffnen');
+};
+menuButton?.addEventListener('click', () => {
+  const open = navigation.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.setAttribute('aria-label', open ? 'Menü schliessen' : 'Menü öffnen');
+});
+navigation?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && navigation?.classList.contains('open')) {
+    closeMenu();
+    menuButton.focus();
+  }
+});
+document.addEventListener('click', event => {
+  if (!event.target.closest('.header')) closeMenu();
+});
+matchMedia('(min-width: 901px)').addEventListener('change', closeMenu);
 
-const consentKey='garage-asani-consent-v1';
-const consentVersion=1;
-const readConsent=()=>{try{const value=JSON.parse(localStorage.getItem(consentKey));return value&&value.version===consentVersion?value:null}catch{return null}};
-const writeConsent=value=>{try{localStorage.setItem(consentKey,JSON.stringify({...value,necessary:true,version:consentVersion,savedAt:new Date().toISOString()}))}catch{}}
-document.body.insertAdjacentHTML('beforeend',`<section class="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-description" hidden><div class="cookie-card"><div class="cookie-copy"><p class="cookie-kicker">Datenschutz-Einstellungen</p><h2 id="cookie-title">Ihre Privatsphäre</h2><p id="cookie-description">Wir verwenden technisch notwendige Speichertechnologien für die sichere Funktion und Ihre Auswahl. Analyse- und Marketingdienste sind derzeit nicht aktiv. Sie können Ihre Auswahl jederzeit im Footer ändern. <a href="datenschutz.html#cookies">Mehr erfahren</a></p></div><div class="cookie-preferences" hidden><label><input type="checkbox" checked disabled><span><strong>Notwendig</strong><small>Für Sicherheit, Grundfunktionen und die Speicherung Ihrer Auswahl.</small></span></label><label><input id="consent-statistics" type="checkbox"><span><strong>Statistik</strong><small>Derzeit wird kein Statistikdienst eingesetzt.</small></span></label><label><input id="consent-marketing" type="checkbox"><span><strong>Marketing</strong><small>Derzeit wird kein Marketingdienst eingesetzt.</small></span></label></div><div class="cookie-actions"><button class="cookie-button primary" type="button" data-consent="necessary">Nur notwendige</button><button class="cookie-button secondary" type="button" data-consent="settings" aria-expanded="false">Einstellungen</button><button class="cookie-button primary" type="button" data-consent="all">Alle akzeptieren</button><button class="cookie-button primary cookie-save" type="button" data-consent="save" hidden>Auswahl speichern</button></div></div></section>`);
-const consentPanel=document.querySelector('.cookie-consent');
-const preferences=consentPanel?.querySelector('.cookie-preferences');
-const settingsButton=consentPanel?.querySelector('[data-consent="settings"]');
-const saveButton=consentPanel?.querySelector('[data-consent="save"]');
-const statisticsInput=consentPanel?.querySelector('#consent-statistics');
-const marketingInput=consentPanel?.querySelector('#consent-marketing');
-let consentReturnFocus=null;
-const openConsent=showSettings=>{if(!consentPanel)return;const saved=readConsent();statisticsInput.checked=Boolean(saved?.statistics);marketingInput.checked=Boolean(saved?.marketing);preferences.hidden=!showSettings;saveButton.hidden=!showSettings;settingsButton.hidden=showSettings;settingsButton.setAttribute('aria-expanded',String(showSettings));consentPanel.hidden=false;document.body.classList.add('consent-open');consentPanel.querySelector(showSettings?'#consent-statistics':'[data-consent="necessary"]')?.focus()};
-const closeConsent=()=>{if(!consentPanel)return;consentPanel.hidden=true;document.body.classList.remove('consent-open');consentReturnFocus?.focus();consentReturnFocus=null};
-const saveAndClose=choice=>{writeConsent(choice);closeConsent()};
-consentPanel?.addEventListener('click',event=>{const action=event.target.closest('[data-consent]')?.dataset.consent;if(action==='necessary')saveAndClose({statistics:false,marketing:false});if(action==='all')saveAndClose({statistics:true,marketing:true});if(action==='settings')openConsent(true);if(action==='save')saveAndClose({statistics:statisticsInput.checked,marketing:marketingInput.checked})});
-document.querySelectorAll('.cookie-settings-link').forEach(link=>link.addEventListener('click',()=>{consentReturnFocus=link;openConsent(true)}));
-if(!readConsent())openConsent(false);
+// Retire legacy offline copies belonging to this website.
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    const jobs = registrations.filter(registration => {
+      const worker = registration.active || registration.waiting || registration.installing;
+      return worker && new URL(worker.scriptURL).pathname.endsWith('/sw.js');
+    }).map(registration => registration.unregister());
+    return Promise.all(jobs);
+  }).catch(() => {});
+}
+if ('caches' in window) {
+  caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('garage-asani')).map(key => caches.delete(key)))).catch(() => {});
+}
+
+const motionOK = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealItems = document.querySelectorAll('.section-title,.intro-copy,.trust-head,.trust article,.service-card,.statement>*,.cta>*,.page-hero>div,.content-copy,.value-card,.contact-info,.contact-form-wrap,.service-scope,.service-process,.service-faq>*,.service-contact>*,.footer>div');
+if (motionOK && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  }), {threshold: 0.02});
+  revealItems.forEach(item => { item.classList.add('reveal'); observer.observe(item); });
+  // Focused content must never remain hidden while navigating by keyboard.
+  document.addEventListener('focusin', event => event.target.closest('.reveal')?.classList.add('is-visible'));
+}
+const tickerButton = document.querySelector('.ticker-toggle');
+const ticker = document.querySelector('.ticker');
+tickerButton?.addEventListener('click', () => {
+  const paused = ticker.classList.toggle('paused');
+  tickerButton.setAttribute('aria-pressed', String(paused));
+  tickerButton.textContent = paused ? 'Markenlauf fortsetzen' : 'Markenlauf pausieren';
+});
+if (!motionOK && tickerButton) tickerButton.hidden = true;
+
+// There are no optional analytics/marketing services. Do not request fictitious consent.
+const consentKey = 'garage-asani-consent-v2';
+const maxAge = 180 * 24 * 60 * 60 * 1000;
+const readConsent = () => {
+  try {
+    const saved = JSON.parse(localStorage.getItem(consentKey));
+    return saved?.necessary === true && Date.now() - saved.savedAt < maxAge;
+  } catch { return false; }
+};
+try { localStorage.removeItem('garage-asani-consent-v1'); } catch {}
+document.body.insertAdjacentHTML('beforeend', `<section class="cookie-consent" role="region" aria-labelledby="cookie-title" hidden><div class="cookie-card"><div class="cookie-copy"><p class="cookie-kicker">Datenschutz</p><h2 id="cookie-title">Nur notwendige Funktionen</h2><p>Diese Website nutzt keine Analyse- oder Marketingdienste. Wir speichern lediglich Ihre Bestätigung dieses Hinweises auf Ihrem Gerät. <a href="/datenschutz.html#cookies">Mehr erfahren</a></p></div><div class="cookie-actions"><button class="cookie-button primary" type="button" data-consent-close>Verstanden</button></div></div></section>`);
+const consentPanel = document.querySelector('.cookie-consent');
+let consentReturnFocus = null;
+const openConsent = source => {
+  consentReturnFocus = source;
+  consentPanel.hidden = false;
+  document.body.classList.add('consent-open');
+  if (source) consentPanel.querySelector('button').focus();
+};
+const closeConsent = () => {
+  try { localStorage.setItem(consentKey, JSON.stringify({necessary:true, savedAt:Date.now()})); } catch {}
+  consentPanel.hidden = true;
+  document.body.classList.remove('consent-open');
+  consentReturnFocus?.focus();
+  consentReturnFocus = null;
+};
+consentPanel.querySelector('[data-consent-close]').addEventListener('click', closeConsent);
+consentPanel.addEventListener('keydown', event => { if (event.key === 'Escape') closeConsent(); });
+document.querySelectorAll('.cookie-settings-link').forEach(button => button.addEventListener('click', () => openConsent(button)));
+if (!readConsent()) openConsent(null);
+
+// Browser validation runs before the submit event; preserve entered data on errors.
+document.querySelectorAll('.contact-form').forEach(form => {
+  form.addEventListener('submit', event => {
+    const submit = form.querySelector('[type="submit"]');
+    if (form.dataset.submitting === 'true') { event.preventDefault(); return; }
+    form.dataset.submitting = 'true';
+    submit.textContent = 'Wird übermittelt …';
+    submit.setAttribute('aria-disabled', 'true');
+    setTimeout(() => {
+      form.dataset.submitting = 'false';
+      submit.textContent = 'Anfrage senden';
+      submit.removeAttribute('aria-disabled');
+    }, 15000);
+  });
+});
+window.addEventListener('pageshow', () => document.querySelectorAll('.contact-form').forEach(form => {
+  form.dataset.submitting = 'false';
+  const button = form.querySelector('[type="submit"]');
+  button.textContent = 'Anfrage senden';
+  button.removeAttribute('aria-disabled');
+}));

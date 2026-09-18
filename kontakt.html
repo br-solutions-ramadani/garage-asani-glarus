@@ -5,24 +5,29 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src &apos;self&apos;; img-src &apos;self&apos; data:; style-src &apos;self&apos; &apos;unsafe-inline&apos;; script-src &apos;self&apos;; font-src &apos;self&apos; data:; connect-src &apos;self&apos;; form-action https://formsubmit.co; base-uri &apos;self&apos;; object-src &apos;none&apos;; upgrade-insecure-requests">
 <title>Kontakt | Garage Asani GmbH</title>
 <meta name="description" content="Kontaktieren Sie die Garage Asani GmbH in Glarus und senden Sie Ihre Fahrzeuganfrage direkt an Mensur Asani.">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="enhancements.css">
+<link rel="stylesheet" href="styles.css?v=20260918-1">
+<link rel="stylesheet" href="enhancements.css?v=20260918-1">
+
+<link rel="canonical" href="https://garage-asani-glarus.ch/kontakt.html">
+<meta property="og:type" content="website"><meta property="og:locale" content="de_CH"><meta property="og:site_name" content="Garage Asani GmbH"><meta property="og:url" content="https://garage-asani-glarus.ch/kontakt.html"><meta property="og:title" content="Kontakt | Garage Asani GmbH"><meta property="og:description" content="Kontaktieren Sie die Garage Asani GmbH in Glarus und senden Sie Ihre Fahrzeuganfrage direkt an Mensur Asani.">
+<meta name="release" content="20260918-1">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
 <header class="header">
 <a class="logo" href="index.html">
 <strong>GAR<span>A</span>GE <i>ASANI</i> GMBH</strong>
 <small>HOLENSTEIN OST · 8750 GLARUS</small>
 </a>
-<button class="menu" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
-<nav>
+<button class="menu" type="button" aria-controls="main-navigation" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav id="main-navigation" aria-label="Hauptnavigation">
 <a href="index.html">Home</a>
 <a href="leistungen.html">Leistungen</a>
 <a href="ueber-uns.html">Über uns</a>
-<a class="active" href="kontakt.html">Kontakt</a>
+<a class="active" aria-current="page" href="kontakt.html">Kontakt</a>
 </nav>
 </header>
-<main>
+<main id="main-content" tabindex="-1">
 <section class="page-hero contact-hero">
 <div>
 <p class="kicker light">Kontakt</p>
@@ -51,18 +56,18 @@
 <input type="hidden" name="_subject" value="Neue Fahrzeuganfrage über die Website">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://br-solutions-ramadani.github.io/garage-asani-glarus/danke.html">
+<input type="hidden" name="_next" value="https://garage-asani-glarus.ch/danke.html">
 <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-<label>Vorname<span aria-hidden="true">*</span><input type="text" name="Vorname" autocomplete="given-name" required></label>
-<label>Nachname<span aria-hidden="true">*</span><input type="text" name="Nachname" autocomplete="family-name" required></label>
-<label>E-Mail<span aria-hidden="true">*</span><input type="email" name="email" autocomplete="email" required></label>
-<label>Telefon<input type="tel" name="Telefon" autocomplete="tel"></label>
-<label>Fahrzeugmarke<span aria-hidden="true">*</span><input type="text" name="Fahrzeugmarke" autocomplete="off" required></label>
-<label>Modell<span aria-hidden="true">*</span><input type="text" name="Modell" autocomplete="off" required></label>
-<label class="form-wide">Jahrgang<span aria-hidden="true">*</span><input type="text" name="Jahrgang" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="z. B. 2019" required></label>
-<label class="form-wide">Kurze Beschreibung<span aria-hidden="true">*</span><textarea name="Beschreibung" rows="6" placeholder="Welche Arbeiten oder Abklärungen sind gewünscht?" required></textarea></label>
+<label>Vorname<span aria-hidden="true">*</span><input type="text" name="Vorname" autocomplete="given-name" required maxlength="100"></label>
+<label>Nachname<span aria-hidden="true">*</span><input type="text" name="Nachname" autocomplete="family-name" required maxlength="100"></label>
+<label>E-Mail<span aria-hidden="true">*</span><input type="email" name="email" maxlength="254" autocomplete="email" required></label>
+<label>Telefon (optional)<input type="tel" name="Telefon" maxlength="40" autocomplete="tel"></label>
+<label>Fahrzeugmarke (optional)<input type="text" name="Fahrzeugmarke" autocomplete="off" maxlength="100"></label>
+<label>Modell (optional)<input type="text" name="Modell" autocomplete="off" maxlength="100"></label>
+<label class="form-wide">Jahrgang (optional)<input type="text" name="Jahrgang" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="z. B. 2019"></label>
+<label class="form-wide">Kurze Beschreibung<span aria-hidden="true">*</span><textarea name="Beschreibung" maxlength="4000" rows="6" placeholder="Welche Arbeiten oder Abklärungen sind gewünscht?" required></textarea></label>
 <label class="form-consent form-wide"><input type="checkbox" name="Datenschutzhinweis" value="Zur Kenntnis genommen" required><span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> zur Kenntnis genommen.</span></label>
-<button class="button form-submit form-wide" type="submit">Anfrage senden</button>
+<p class="form-note form-wide">Ihre Anfrage ist unverbindlich. Ein Termin wird erst nach unserer Rückmeldung vereinbart. Die Übermittlung erfolgt über FormSubmit an garage.asani@gmx.ch. Bitte keine Ausweis-, Zahlungs- oder Gesundheitsdaten eintragen.</p><button class="button form-submit form-wide" type="submit">Anfrage senden</button>
 </form>
 <p class="form-note">Pflichtfelder sind mit * gekennzeichnet.</p>
 </div>
@@ -81,6 +86,6 @@
 <div class="footer-bottom"><span>© 2026 Garage Asani GmbH</span><button class="cookie-settings-link" type="button">Cookie-Einstellungen</button><span>Website by BR Solutions</span></div>
 </footer>
 <a class="floating-call" href="tel:+41556405859">Jetzt anrufen</a>
-<script src="script.js"></script>
+<script src="script.js?v=20260918-1"></script>
 </body>
 </html>

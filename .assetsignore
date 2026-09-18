@@ -1,0 +1,12 @@
+# Publish only the website. Configuration, tests and repository history stay private.
+*
+!/*.html
+!/*.css
+!/script.js
+!/sw.js
+!/robots.txt
+!/sitemap.xml
+!/assets/
+!/assets/*.webp
+!/leistungen/
+!/leistungen/**
