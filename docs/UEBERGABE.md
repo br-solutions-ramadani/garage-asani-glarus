@@ -8,7 +8,8 @@ Stand: 18. September 2026. Technische Veröffentlichung umgesetzt; endgültige �
 - Quellcode: https://github.com/br-solutions-ramadani/garage-asani-glarus, Branch `main`.
 - Hosting: Cloudflare Worker `garage-asani-glarus`, GitHub-Verbindung durch erfolgreichen Cloudflare-Build nachgewiesen.
 - DNS: `joaquin.ns.cloudflare.com`, `ruth.ns.cloudflare.com`. Domainregistrierung bleibt bei GoDaddy.
-- Veröffentlichter Website-Stand: Commit `56654a2cc0f7c342e77ef365a7758e6a331d9296`, Release `20260918-3`; Cloudflare-Build erfolgreich. Die abschliessend geänderten 15 Seiten-/CSS-Dateien wurden erneut bytegleich mit der Live-Version geprüft.
+- Ausgangspunkt der Datenschutzergänzung: Commit `56654a2cc0f7c342e77ef365a7758e6a331d9296`, Release `20260918-3`; Cloudflare-Build erfolgreich. Die damals abschliessend geänderten 15 Seiten-/CSS-Dateien wurden bytegleich mit der Live-Version geprüft.
+- Datenschutzergänzung, Release `20260918-4`: Anbieterinformationen, direkte Auskunfts-/Löschkontakte und Betriebsablauf ergänzt. Vier Worker-Tests sowie HTML-Anker und Mailto-Ziele vor Veröffentlichung erfolgreich geprüft. Den zugehörigen Cloudflare-Build und den Live-Inhalt nach Veröffentlichung separat kontrollieren.
 - Öffentliche Kontaktadresse bleibt `garage.asani@gmx.ch`. Keine neue Domain-Mail eingerichtet.
 - Website-Code enthält keine Datenbank, Anmeldung, Zahlung oder administrative Schreibfunktion. Formulare gehen per HTTPS an FormSubmit und von dort an GMX.
 
@@ -60,13 +61,13 @@ Stand: 18. September 2026. Technische Veröffentlichung umgesetzt; endgültige �
 | 17 | Kinderdaten | Keine Kinderkonten, Altersprofile oder auf Kinder gerichtete Datenerfassung; keine unnötige Altersabfrage ergänzt. |
 | 18 | Newsletter-Abmeldung | Kein Newsletter/Marketingversand implementiert. Persönliche Antworten auf Werkstattanfragen bleiben normale Korrespondenz. |
 | 19 | Schrift-/Bildrechte | Systemschrift-Fallbacks ohne externe Fontdateien. Für bereitgestellte und generierte Bilder fehlen vollständig dokumentierte Nutzungsnachweise. |
-| 20 | Datenlöschung | Kontaktweg über GMX in Datenschutzerklärung enthalten. Tatsächliche Löschabläufe in GMX/FormSubmit müssen vom Betreiber umgesetzt und bestätigt werden. |
+| 20 | Datenlöschung | Direkte Auskunfts-/Löschkontaktlinks und Antwortfrist für Auskunft ergänzt. Ablauf in `docs/DATENSCHUTZ-ABLAUF.md` vorbereitet. FormSubmit nennt 30 Tage Archiv; GMX-Mailinhalte sind davon unabhängig. Praktische Ausführung und Anbieterbestätigungen bleiben offen. |
 
 ## Offene Voraussetzungen für die endgültige Übergabe
 
 1. **Kontozugriffe:** Nach erfolgreicher GitHub-Kontobestätigung geprüft: 0 zusätzliche Mitarbeiter, 0 Deploy-Schlüssel; installierte Apps sind ChatGPT Codex Connector und Cloudflare Workers and Pages. Cloudflare-Dashboard wird weiterhin durch eine Sicherheitsprüfung blockiert. Cloudflare-Mitglieder sowie kontoübergreifende Tokens, Zwei-Faktor-Schutz und Wiederherstellung sind nicht vollständig geprüft. Das Repository ist öffentlich lesbar, aber nicht öffentlich beschreibbar. Die automatische Freigabeprüfung hat sowohl die Privatschaltung als auch die Deaktivierung der zusätzlichen GitHub-Pages-Seite abgelehnt und verlangt ausdrückliche Zustimmung zu diesen konkreten Änderungen. Beide Einstellungen wurden deshalb nicht geändert. GitHub nennt für die Privatschaltung das Abschalten von Advanced Security und die Abtrennung vorhandener öffentlicher Forks. Beim Abschalten von Pages wäre nur die zusätzliche github.io-Adresse nicht mehr erreichbar; die nachgewiesene Cloudflare-Hauptdomain bleibt separat gehostet.
 2. **Formularzustellung:** FormSubmit-Aktivierung und ein bewilligter Test bis zum tatsächlichen Eingang im GMX-Postfach. Frontend-Validierung allein beweist keine Zustellung.
-3. **Formulardatenschutz:** Verantwortlicher, Verarbeitungsorte, Aufbewahrung und vertragliche Grundlage von FormSubmit bestätigen. Die verlinkte Datenschutz-PDF war bei der Prüfung nicht zuverlässig abrufbar. Keine Freigabe als vollständig datenschutzrechtlich geprüft.
+3. **Formulardatenschutz:** FormSubmit-PDF und Dokumentation am 18. September 2026 erfolgreich gelesen. 30 Tage Formulararchiv sind dokumentiert und in der Datenschutzerklärung ergänzt; die öffentliche API-Dokumentation beschreibt keinen Lösch-Endpunkt. Juristische Person, Verarbeitungsstaaten, Vertragsgrundlage und Löschung von Backups/Logs weiterhin beim Anbieter bestätigen. GMX- und FormSubmit-Ablauf unter `docs/DATENSCHUTZ-ABLAUF.md`. Keine Freigabe als vollständig datenschutzrechtlich geprüft.
 4. **Inhalte und Rechte:** Mensur/Mensud klären, Öffnungszeiten/Leistungen bestätigen, Rechte an Bildern dokumentieren. Das Impressum verwendet den im SHAB belegten Namen Mensud.
 5. **Mobile Abnahme:** Startseite, alle Leistungstypen, Formular und Menü bei 320/390/768 Pixeln auf Überläufe und Bedienbarkeit prüfen; zusätzlich iPhone Safari und Android Chrome.
 
