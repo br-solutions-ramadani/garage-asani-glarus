@@ -1,4 +1,4 @@
-# Publish only the website. Configuration, tests and repository history stay private.
+# Publish only website assets. The public repository itself remains publicly readable.
 *
 !/*.html
 !/*.css
@@ -10,4 +10,5 @@
 !/assets/
 !/assets/*.webp
 !/leistungen/
-!/leistungen/**
+!/leistungen/*/
+!/leistungen/*/index.html

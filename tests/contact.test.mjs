@@ -88,9 +88,10 @@ test('all eight forms block native transmission and provide a no-script contact 
     assert.match(html,/form-action 'none'/,file);
     assert.match(html,/data-email-prepare disabled/,file);
     assert.match(html,/<noscript>[\s\S]*?mailto:garage\.asani@gmx\.ch[\s\S]*?<\/noscript>/,file);
-    assert.match(html,/contact\.js\?v=20260918-8/,file);
+    const release=html.match(/<meta name="release" content="([^"]+)"/)?.[1];
+    assert.ok(release,file+' has a release marker');
+    assert.ok(html.includes('contact.js?v='+release),file+' loads the current composer');
     assert.doesNotMatch(html,/name="_[^"]*"|name="Datenschutzhinweis"/,file);
   }
   assert.equal(forms,8);
 });
-
