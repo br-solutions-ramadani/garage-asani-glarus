@@ -5,6 +5,10 @@
   "workers_dev": true,
   "preview_urls": false,
   "upload_source_maps": false,
+  "ratelimits": [
+    {"name":"REQUEST_BURST", "namespace_id":"2026091901", "simple":{"limit":60,"period":10}},
+    {"name":"REQUEST_SUSTAINED", "namespace_id":"2026091902", "simple":{"limit":300,"period":60}}
+  ],
   "assets": {
     "directory": ".",
     "binding": "ASSETS",

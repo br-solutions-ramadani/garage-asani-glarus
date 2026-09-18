@@ -1,6 +1,6 @@
 # Übergabe und Betrieb – Garage Asani
 
-Stand: 19. September 2026 · Release 20260919-1
+Stand: 19. September 2026 · Release 20260919-2
 
 ## Website und Zuständigkeiten
 
@@ -22,6 +22,8 @@ Frühere FormSubmit-Daten werden durch die Umstellung nicht gelöscht; siehe DAT
 
 - .assetsignore beschränkt die Auslieferung auf öffentliche Website-Dateien. Interne Dokumentation, Tests und Konfiguration werden auf der Domain nicht ausgeliefert. Das Repository selbst ist öffentlich lesbar: keine Zugangsdaten oder Kundendaten dort ablegen.
 - Der Worker erlaubt GET und HEAD, erzwingt die Hauptdomain mit HTTPS und setzt Sicherheitsheader. Schreibmethoden werden abgewiesen.
+- Zwei Cloudflare-Rate-Limit-Bindings begrenzen sämtliche beim Worker ankommenden Anfragen pro Cloudflare-vermittelter IP-Adresse: 60 in 10 Sekunden und 300 in 60 Sekunden. Alle Pfade, Query-Parameter, Methoden und Hostnamen teilen dieselben Zähler. Eine Ablehnung liefert 429, Retry-After und no-store. Bei fehlenden Bindings oder einem Ausfall der Begrenzung folgt 503 statt einer ungeschützten Auslieferung.
+- Diese Zähler gelten pro Cloudflare-Standort und werden asynchron aktualisiert. Sie sind keine exakt globale Obergrenze und kein vollständiger DDoS-Schutz. Gemeinsam genutzte IP-Adressen teilen die Grenze. Keine zusätzlichen Cookies, keine Formularinhalte und keine eigenen IP-Protokolle werden dafür angelegt. Die Begrenzung ersetzt weder Postfachschutz noch Kontosicherheit.
 - Es gibt keine öffentliche Anmeldung, Uploadfunktion, Kundendatenbank oder externe JavaScript-Bibliothek.
 - Zusätzliche Worker-Anwendungsprotokollierung ist deaktiviert. Cloudflare verarbeitet trotzdem Verbindungsdaten und Sicherheitsereignisse.
 - Der Cookie-Hinweis speichert seine Bestätigung lokal für höchstens 180 Tage. Der Website-Code enthält keine optionalen Analyse- oder Marketingdienste.

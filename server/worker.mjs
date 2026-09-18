@@ -1,5 +1,5 @@
 const canonicalHost = 'garage-asani-glarus.ch';
-const release = '20260919-1';
+const release = '20260919-2';
 const securityHeaders = {
   'Strict-Transport-Security': 'max-age=31536000',
   'X-Content-Type-Options': 'nosniff',
@@ -13,11 +13,39 @@ function secure(response) {
   const result = new Response(response.body, response);
   for (const [name,value] of Object.entries(securityHeaders)) result.headers.set(name,value);
   // Revalidate HTML, JS and CSS instead of keeping an older release in browser caches.
-  result.headers.set('Cache-Control','public, max-age=0, must-revalidate');
+  result.headers.set('Cache-Control',response.status >= 400 ? 'no-store' : 'public, max-age=0, must-revalidate');
   return result;
+}
+function protectionResponse(request, status, seconds, message) {
+  return secure(new Response(request.method === 'HEAD' ? null : message, {
+    status,
+    headers: {'Content-Type':'text/plain; charset=utf-8', 'Retry-After':String(seconds)}
+  }));
+}
+async function limitRequests(request, env) {
+  // Cloudflare supplies this header at ingress. Never trust X-Forwarded-For,
+  // query strings, cookies or browser storage as the rate-limit identity.
+  const ip = request.headers.get('CF-Connecting-IP');
+  if (!ip) return protectionResponse(request,503,60,'Die Website ist vorübergehend nicht verfügbar. Bitte versuchen Sie es später erneut.');
+  const key = `garage-asani:v1:${ip}`;
+  try {
+    // Shared provider counters, not per-process JavaScript memory. All paths,
+    // query strings, hosts and methods share the same counters for this IP.
+    const burst = await env.REQUEST_BURST.limit({key});
+    if (!burst.success) return protectionResponse(request,429,10,'Zu viele Zugriffe. Bitte warten Sie 10 Sekunden und versuchen Sie es erneut.');
+    const sustained = await env.REQUEST_SUSTAINED.limit({key});
+    if (!sustained.success) return protectionResponse(request,429,60,'Zu viele Zugriffe. Bitte warten Sie eine Minute und versuchen Sie es erneut.');
+  } catch {
+    // A missing or unavailable binding must not silently disable protection.
+    // No IP addresses, form bodies or provider errors are logged or reflected.
+    return protectionResponse(request,503,60,'Die Website ist vorübergehend nicht verfügbar. Bitte versuchen Sie es später erneut.');
+  }
+  return null;
 }
 export default {
   async fetch(request, env) {
+    const limited = await limitRequests(request,env);
+    if (limited) return limited;
     const url = new URL(request.url);
     if (url.protocol !== 'https:' || url.hostname !== canonicalHost) {
       url.protocol = 'https:'; url.hostname = canonicalHost; url.port = '';
