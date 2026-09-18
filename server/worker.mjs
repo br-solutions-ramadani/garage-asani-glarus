@@ -1,5 +1,5 @@
 const canonicalHost = 'garage-asani-glarus.ch';
-const release = '20260919-2';
+const release = '20260919-3';
 const securityHeaders = {
   'Strict-Transport-Security': 'max-age=31536000',
   'X-Content-Type-Options': 'nosniff',

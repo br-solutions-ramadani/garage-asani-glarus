@@ -70,7 +70,7 @@ const readConsent = () => {
   } catch { return false; }
 };
 try { localStorage.removeItem('garage-asani-consent-v1'); } catch {}
-document.body.insertAdjacentHTML('beforeend', `<section class="cookie-consent" role="region" aria-labelledby="cookie-title" hidden><div class="cookie-card"><div class="cookie-copy"><p class="cookie-kicker">Datenschutz</p><h2 id="cookie-title">Nur notwendige Funktionen</h2><p>Diese Website nutzt keine Analyse- oder Marketingdienste. Wir speichern lediglich Ihre Bestätigung dieses Hinweises auf Ihrem Gerät. <a href="${privacyUrl}">Mehr erfahren</a></p></div><div class="cookie-actions"><button class="cookie-button primary" type="button" data-consent-close>Verstanden</button></div></div></section>`);
+document.body.insertAdjacentHTML('beforeend', `<section class="cookie-consent" role="region" aria-labelledby="cookie-title" hidden><div class="cookie-card"><div class="cookie-copy"><p class="cookie-kicker">Datenschutz</p><h2 id="cookie-title">Nur notwendige Funktionen</h2><p>Diese Website nutzt keine Analyse- oder Marketingdienste. Ihre Hinweisbestätigung wird lokal gespeichert. Cloudflare kann notwendige Sicherheitscookies für den Schutz vor automatisierten Zugriffen verwenden. <a href="${privacyUrl}">Mehr erfahren</a></p></div><div class="cookie-actions"><button class="cookie-button primary" type="button" data-consent-close>Verstanden</button></div></div></section>`);
 const consentPanel = document.querySelector('.cookie-consent');
 let consentReturnFocus = null;
 const openConsent = source => {
