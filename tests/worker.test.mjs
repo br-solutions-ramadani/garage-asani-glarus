@@ -20,6 +20,8 @@ test('canonical HTTPS serves assets without a redirect loop and with security/ca
  const r=await worker.fetch(new Request('https://garage-asani-glarus.ch/kontakt.html'),env);
  assert.equal(r.status,200);assert.match(await r.text(),/Garage Asani/);
  assert.match(r.headers.get('Content-Security-Policy'),/frame-ancestors 'none'/);
+ assert.match(r.headers.get('Content-Security-Policy'),/form-action 'none'/);
+ assert.doesNotMatch(r.headers.get('Content-Security-Policy'),/formsubmit/);
  assert.equal(r.headers.get('X-Frame-Options'),'DENY');assert.match(r.headers.get('Cache-Control'),/must-revalidate/);
 });
 test('private source paths and invalid methods cannot expose or persist customer data',async()=>{

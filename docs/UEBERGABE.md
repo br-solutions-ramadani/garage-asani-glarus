@@ -2,6 +2,23 @@
 
 Stand: 18. September 2026. Technische Veröffentlichung umgesetzt; endgültige Übergabe noch von den unten aufgeführten offenen Nachweisen abhängig.
 
+## Aktueller Kontaktweg – Release 20260918-8
+Stand: 18. September 2026. Dieser Abschnitt ersetzt für den aktuellen Kontaktweg die älteren FormSubmit-Angaben weiter unten; frühere Prüfungsergebnisse bleiben als Historie erhalten.
+
+- Vom Nutzer gewählt: E-Mail auf dem eigenen Gerät vorbereiten, ohne zusätzlichen Formulardienst.
+- Alle acht Formulare erstellen eine Vorschau lokal. Versand erfolgt ausschliesslich durch den Besucher in seinem gewählten Mailprogramm; keine automatische Mail, kein Formular-POST und keine Speicherung der Eingaben durch Website-Code.
+- Kein FormSubmit-Endpunkt, keine FormSubmit-Konfiguration und keine FormSubmit-Freigabe in der aktiven Content Security Policy. Diese setzt `form-action 'none'` sowohl im Worker als auch in HTML.
+- Mail-Adresse für Rückfragen ist optional; Name und Anliegen strukturieren den Entwurf. Formulardaten erscheinen nicht in der Website-URL. Mailto-Betreff und -Text sind kodiert. Lange Entwürfe nutzen den vollständigen Kopiertext, um Kürzungen durch Mailprogramme zu vermeiden.
+- Die Vorbereitung ist erst nach erfolgreicher JavaScript-Initialisierung verfügbar. Ohne JavaScript bleiben direkte E-Mail und Telefon nutzbar.
+- Datenschutzerklärung, Impressum, AGB und frühere Bestätigungsseite beschreiben den neuen Ablauf. Die Datenschutzerklärung erklärt auch die Übergabe an das eigene Mailprogramm, mögliche Entwurfs-/Zwischenablage-Synchronisierung und frühere Anfragen.
+- 11 automatisierte Prüfungen bestanden (7 für den Kontaktablauf, 4 für den Worker); keine Kundenanfrage oder Testmail versendet.
+- Lokaler Browser: Pflichtfelder, Entwurf mit Umlauten/Zeilenumbruch und korrekt kodierter Mailto-Link bestätigt. Darstellung bei Desktop- und Smartphone-Breite (390 px Fenster; 375 px Inhaltsbreite) ohne horizontales Überlaufen geprüft. Kein Test auf einem echten iPhone-/Android-Mailprogramm.
+- Bereitstellung: Änderungen gehen über den bestehenden GitHub→Cloudflare-Veröffentlichungsweg. Der Live-Nachweis wird im separaten Abschlussbericht dokumentiert.
+
+### Noch zu erledigen im Betrieb
+Die technische Umstellung löscht keine vor dem Wechsel bei FormSubmit vorhandenen Daten. Bei früheren Anfragen/Betroffenenersuchen Anbieterarchiv, mögliche Logs/Backups und GMX-Kopien berücksichtigen. Es wurde weder ein Anbieter kontaktiert noch eine Löschbestätigung eingeholt. Die unten dokumentierten offenen Konto-, Inhalts- und Betriebsnachweise sind durch diesen Kontaktumbau nicht automatisch erledigt. Keine vollständige rechtliche Freigabe der gesamten Geschäftstätigkeit oder Website.
+
+
 ## Betrieb und Veröffentlichung
 
 - Hauptadresse: https://garage-asani-glarus.ch/

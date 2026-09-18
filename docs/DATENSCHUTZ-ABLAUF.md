@@ -4,6 +4,11 @@ Stand: 18. September 2026. Zuständig ist die Garage Asani GmbH über `garage.as
 
 Diese Datei enthält nur allgemeine Anweisungen. Das GitHub-Repository ist öffentlich: keine Kundennamen, Anfragen, Nachrichtenkopien, Zugangsdaten oder Bearbeitungsprotokolle hier ablegen. Fallbezogene Nachweise gehören in eine zugriffsbeschränkte betriebliche Ablage.
 
+## Aktueller Stand ab Release 20260918-8
+Alle acht Eingabeformulare bereiten eine E-Mail lokal vor. Die Website sendet neue Eingaben nicht mehr an FormSubmit. Das eigene Mailprogramm des Besuchers erhält den Entwurf erst nach seinem Klick, und der Besucher sendet dort selbst. Für neue Anfragen sind daher das GMX-Postfach und betriebliche Kopien zu berücksichtigen; die FormSubmit-Schritte unten betreffen ausschliesslich frühere Übermittlungen.
+
+Die Umstellung entfernt keine Altdaten beim früheren Dienst. 30 Tage Archivaufbewahrung sind nur die dokumentierte Anbieterangabe, kein Nachweis der vollständigen Löschung von Backups/Logs. Anbieteranfragen oder Löschungen wurden durch diesen Umbau nicht ausgeführt. Auskunfts- und Löschanliegen zu älteren Eingängen weiterhin anhand des folgenden Ablaufs bearbeiten.
+
 ## 1. Eingang und Zuordnung
 
 - Eingang, Art des Begehrens und verantwortliche Person intern festhalten. Das GMX-Postfach regelmässig prüfen.
@@ -24,7 +29,7 @@ Diese Datei enthält nur allgemeine Anweisungen. Das GitHub-Repository ist öffe
 - GMX nennt grundsätzlich sieben Tage für Verkehrsdaten; das ist keine automatische Löschfrist für Nachrichteninhalte. Für anbieterinterne Daten und offene Backup-Fragen nennt GMX `datenschutz@gmxnet.de` als Datenschutzkontakt. [GMX-Datenschutzerklärung](https://agb-server.gmx.net/datenschutz).
 - Das gesamte GMX-Konto bleibt bestehen. Eine einzelne Kundenanfrage ist kein Anlass, das Postfach zu kündigen.
 
-## 4. FormSubmit: Archiv berücksichtigen
+## 4. Frühere FormSubmit-Anfragen: Archiv berücksichtigen
 
 Die [FormSubmit-Dokumentation](https://formsubmit.co/documentation) nennt 30 Tage für archivierte Formulareingaben. Die [API-Dokumentation](https://formsubmit.co/api-documentation) beschreibt einen geschützten Abruf; ein Lösch-Endpunkt ist dort nicht dokumentiert. Nicht einfach abwarten, wenn eine frühere Löschung erforderlich ist.
 

@@ -90,25 +90,3 @@ consentPanel.querySelector('[data-consent-close]').addEventListener('click', clo
 consentPanel.addEventListener('keydown', event => { if (event.key === 'Escape') closeConsent(); });
 document.querySelectorAll('.cookie-settings-link').forEach(button => button.addEventListener('click', () => openConsent(button)));
 if (!readConsent()) openConsent(null);
-
-// Browser validation runs before the submit event; preserve entered data on errors.
-document.querySelectorAll('.contact-form').forEach(form => {
-  form.addEventListener('submit', event => {
-    const submit = form.querySelector('[type="submit"]');
-    if (form.dataset.submitting === 'true') { event.preventDefault(); return; }
-    form.dataset.submitting = 'true';
-    submit.textContent = 'Wird übermittelt …';
-    submit.setAttribute('aria-disabled', 'true');
-    setTimeout(() => {
-      form.dataset.submitting = 'false';
-      submit.textContent = 'Anfrage senden';
-      submit.removeAttribute('aria-disabled');
-    }, 15000);
-  });
-});
-window.addEventListener('pageshow', () => document.querySelectorAll('.contact-form').forEach(form => {
-  form.dataset.submitting = 'false';
-  const button = form.querySelector('[type="submit"]');
-  button.textContent = 'Anfrage senden';
-  button.removeAttribute('aria-disabled');
-}));
