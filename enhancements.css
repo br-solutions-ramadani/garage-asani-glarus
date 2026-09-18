@@ -76,3 +76,5 @@ main:focus{outline:none}
 .footer{padding-bottom:110px}.footer-about>p{color:#a8aaae}
 @media(max-width:560px){.service-card{min-height:380px}.service-card>div{padding:24px 22px}.service-detail-hero h1{font-size:clamp(32px,10vw,46px);overflow-wrap:anywhere}.header{padding-left:20px;padding-right:20px}.cookie-actions{display:flex}.cookie-button{width:auto}.contact-form-wrap,.contact-info{padding:26px 20px}.floating-call{bottom:max(16px,env(safe-area-inset-bottom))}.cookie-consent{padding-bottom:max(10px,env(safe-area-inset-bottom))}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}}
+
+.brand-strip>p{color:#65676b}
