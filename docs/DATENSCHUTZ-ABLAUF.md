@@ -45,12 +45,14 @@ Das ersetzt nicht die Prüfung anderer Cloudflare-Sicherheitsprotokolle, Log-Exp
 
 Cloudflares [Datenschutzerklärung](https://www.cloudflare.com/privacypolicy/) nennt bei Endnutzern unter anderem IP-Adressen und Verkehrsdaten. Für die allgemeine Aufbewahrung nennt sie Zweck und weitere Kriterien statt einer einheitlichen Frist. Die [Security-Events-Dokumentation](https://developers.cloudflare.com/waf/analytics/security-events/) beschreibt Sicherheitsereignisse mit möglichen IP-Angaben und getrennte Datenbestände: im Free-Tarif 24 Stunden für Security Events und sieben Tage für Security Analytics. Das sind Angaben zu diesen Beständen, keine Zusage über sämtliche Datenkopien oder Cloudflare-internen Systeme. Der Free-Hinweis im Worker-Screenshot belegt zudem nicht den Tarif der Domain.
 
-Nächste Kontrolle im Domain-Bereich: `garage-asani-glarus.ch` → **Security → Analytics → Events**. Vorhandene Sicherheitsereignisse und etwaige Exporte prüfen. Eine leere Ereignisliste ist kein Beweis für fehlende Verarbeitung. Sicherheitsfunktionen nicht allein zur Vermeidung sichtbarer Einträge abschalten. Früher gespeicherte Worker-Logs werden durch die aktuelle Disabled-Anzeige nicht rückwirkend als gelöscht nachgewiesen.
+Nutzer-Screenshot `IMG_3845.png` vom 18. September 2026 (sichtbare Uhrzeit 19:01) zeigt in „Sampled logs“ zwei Ereignisse mit IP-Adresse, Zeitpunkt, zugeordnetem Land, Aktion „Block“ und Dienst „Browser integrity check“. Die IP-Adresse wird hier nicht wiedergegeben. Damit sind gespeicherte Sicherheitsereignisse mit IP-Angaben nachgewiesen. Der ausgewählte Zeitraum „Last 24 hours“ ist ein Anzeige-Filter und für sich kein Nachweis der Löschfrist. Pfad, User-Agent und tatsächlicher Anlass sind nicht sichtbar; daraus weder einen erfolgreichen Angriff noch einen Fehlalarm ableiten.
+
+Nächste Kontrollen: Domain-Tarif zur Einordnung der dokumentierten Fristen bestätigen, zusätzliche Exporte und frühere Logs prüfen. Bei Hinweisen auf blockierte legitime Besucher einzelne Ereignisdetails ansehen; Sicherheitsfunktionen nicht pauschal abschalten. Laut [Cloudflare-Dokumentation zu Browser Integrity Check](https://developers.cloudflare.com/waf/tools/browser-integrity-check/) wertet diese Funktion HTTP-Header und User-Agent aus. Die zwei sichtbaren Sperren allein begründen keine zusätzliche Aktivierung von Bot Fight Mode. Früher gespeicherte Worker-Logs werden durch die aktuelle Disabled-Anzeige nicht rückwirkend als gelöscht nachgewiesen.
 
 ## Noch offen
 
 - Praktischer Ablauf im tatsächlichen GMX-Postfach und Identifikation vorhandener lokaler Kopien/Backups.
 - FormSubmit-Anbieterantwort, Vertragsgrundlage und Verarbeitungsstaaten.
-- Cloudflare-Sicherheitsereignisse, Exporte, frühere Logs und verbleibende Datenverarbeitung; die deaktivierte Worker-Observability ist nun anhand des Nutzer-Screenshots bestätigt.
+- Cloudflare-Domain-Tarif und anwendbare Aufbewahrung, Exporte, frühere Worker-Logs und weitere Anbieter-Verarbeitung. Deaktivierte Worker-Observability und vorhandene Sicherheitsereignisse mit IP-Angaben sind anhand der Nutzer-Screenshots bestätigt.
 
 Es wurden im Rahmen dieser Vorbereitung keine Kundendaten gelöscht und keine Nachrichten an Anbieter oder Kunden versendet.

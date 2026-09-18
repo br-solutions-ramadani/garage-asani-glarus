@@ -37,6 +37,7 @@ Stand: 18. September 2026. Technische Veröffentlichung umgesetzt; endgültige �
 - Browser: Navigation über echte Links; leere Pflichtfelder blockieren das Absenden; falsche E-Mail wird als ungültig erkannt; Cookie-Hinweis öffnet/schliesst und gibt Fokus zurück; Markenlauf pausiert; Sprunglink fokussiert den Hauptinhalt.
 - Keine echte Formularnachricht versendet, kein Empfang im GMX-Postfach behauptet.
 - Nutzer-Screenshot `IMG_3842.png` vom 18. September 2026, sichtbare Uhrzeit 18:48: Projekt `garage-asani-glarus`, Register Observability, Meldung „Workers Observability is Disabled“. Der Zustand im Dashboard stimmt mit `observability.enabled: false` überein. Das belegt weder die Löschung früherer Logs noch das Abschalten anderer Cloudflare-Protokolle.
+- Nutzer-Screenshot `IMG_3845.png` vom selben Tag, sichtbare Uhrzeit 19:01: „Sampled logs“ zeigt zwei durch Browser Integrity Check blockierte Anfragen mit IP-Adresse, Zeitpunkt und Land. Sicherheitsprotokollierung mit IP-Angaben ist damit nachgewiesen. Keine IP-Adresse in das Repository übernommen. „Last 24 hours“ ist kein eigenständiger Nachweis der Löschfrist. Die tatsächliche Ursache der Sperren ist ohne Ereignisdetails nicht geklärt. Datenschutzerklärung in Release `20260918-5` entsprechend präzisiert.
 - Mobile CSS-Regeln geprüft und verbessert. Ein vollständiger visueller Test bei Smartphone-Breite und auf iOS/Android konnte mit dem verfügbaren Browserzugang nicht durchgeführt werden. Kein vollständiger Barrierefreiheitsnachweis.
 
 ## Die 20 Punkte aus der Vorlage
