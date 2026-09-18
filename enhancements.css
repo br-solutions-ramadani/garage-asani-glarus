@@ -78,3 +78,5 @@ main:focus{outline:none}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}}
 
 .brand-strip>p{color:#65676b}
+.form-alternative a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.header nav.open{max-height:calc(100vh - 78px);max-height:calc(100dvh - 78px);overflow-y:auto;overscroll-behavior-y:contain}}

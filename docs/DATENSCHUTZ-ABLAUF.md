@@ -51,6 +51,25 @@ Nächste Kontrollen: Domain-Tarif zur Einordnung der dokumentierten Fristen best
 
 ## Noch offen
 
+### Ergänzende Anbieterprüfung vom 18. September 2026
+
+**Cloudflare-Vertrag:** Ziffer 6.1 der [Self-Serve-Bedingungen](https://www.cloudflare.com/terms/) bezieht den Datenschutz-Anhang ein und erfasst ausdrücklich auch das Schweizer DSG. Die [DPA, Version 6.4](https://www.cloudflare.com/cloudflare-customer-dpa/), behandelt in Ziffer 6.2(c) Schweizer Transfers und angepasste Standardvertragsklauseln. Das belegt verfügbare Vertragsregelungen, nicht die vollständige Prüfung des konkreten Kontos oder der Vertragsbeziehung Garage–Agentur. Kontoinhaber und Verantwortungskette müssen eindeutig zugeordnet sein. Es wurde keine neue Vereinbarung im Namen des Betriebs angenommen.
+
+**Dokumentierte Fristen je Domain-Tarif:** Die [Cloudflare-Tabelle](https://developers.cloudflare.com/waf/analytics/security-events/#limits) unterscheidet zwei Bestände:
+
+| Bestand | Free / Pro | Business | Enterprise |
+|---|---|---|---|
+| Security Events | 24 Stunden | 3 Tage | 30 Tage |
+| Security Analytics | 7 Tage | 31 Tage | 90 Tage |
+
+Das ist keine gemeinsame Löschfrist für sämtliche Cloudflare-Daten. Zusätzliche Exporte und Daten bei anderen Diensten werden dadurch nicht gelöscht. Der tatsächlich verwendete Domain-Tarif ist noch nicht nachgewiesen.
+
+**FormSubmit:** Die weiterhin angebotene Datenschutz-PDF trägt den Stand 17. Januar 2019. Sie nennt nicht die für diese Prüfung benötigten Verarbeitungsstaaten, die vollständige Anbieteridentität oder eine ausreichende Vertragsgrundlage. Diese Informationen lassen sich nicht seriös ergänzen oder durch eine Formular-Checkbox ersetzen. Vor endgültiger Datenschutzfreigabe sind sie beim Anbieter zu bestätigen oder der Formulardienst ist durch einen nachweisbar geeigneten Übermittlungsweg zu ersetzen. Eine solche Anbieterbestätigung wurde nicht angefordert oder erhalten.
+
+**Direkter Kontakt:** Release `20260918-6` ergänzt neben allen acht Formularen E-Mail- und Telefonlinks. Der E-Mail-Link öffnet das Mailprogramm ohne FormSubmit; es wird dadurch keine Nachricht automatisch versendet. Die bestehende Formularübermittlung bleibt aktiv und ihre offene Anbieterprüfung bleibt bestehen.
+
+### Verbleibende Nachweise
+
 - Praktischer Ablauf im tatsächlichen GMX-Postfach und Identifikation vorhandener lokaler Kopien/Backups.
 - FormSubmit-Anbieterantwort, Vertragsgrundlage und Verarbeitungsstaaten.
 - Cloudflare-Domain-Tarif und anwendbare Aufbewahrung, Exporte, frühere Worker-Logs und weitere Anbieter-Verarbeitung. Deaktivierte Worker-Observability und vorhandene Sicherheitsereignisse mit IP-Angaben sind anhand der Nutzer-Screenshots bestätigt.

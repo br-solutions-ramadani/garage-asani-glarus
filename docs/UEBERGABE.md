@@ -15,6 +15,9 @@ Stand: 18. September 2026. Technische Veröffentlichung umgesetzt; endgültige �
 
 ## Durchgeführte Korrekturen
 
+- Ergänzungen in Release `20260918-6`: Cloudflare-Regelungen für Schweizer Datenübermittlungen und offizielle Unterauftragsbearbeiter-Liste verlinkt; an allen acht Formularen direkter E-Mail-/Telefonkontakt ergänzt. Der Cookie-Detail-Link wird aus dem Skriptpfad aufgelöst und funktioniert damit auch bei einer Veröffentlichung in einem Unterverzeichnis. Das geöffnete mobile Menü erhält eine auf die Bildschirmhöhe begrenzte, scrollbar bleibende Fläche. Diese CSS-Korrektur ersetzt keinen Test auf realen Mobilgeräten.
+- Die geänderten JavaScript-/CSS-Dateien werden mit einer neuen Versionskennung referenziert; Release-Kennung `20260918-6`. JavaScript-Syntaxprüfung und die vier Worker-Tests erfolgreich. Keine Formularnachricht für diese Prüfung versendet.
+
 - HTTPS, www und workers.dev werden serverseitig auf die Hauptdomain weitergeleitet. Pfad und Suchparameter bleiben erhalten.
 - Sicherheitsheader: HSTS, Content Security Policy, X-Frame-Options, nosniff, Referrer-Policy und Permissions-Policy.
 - Nur öffentliche Website-Dateien werden als Assets hochgeladen. Servercode, Tests, Dokumentation, Konfiguration und versteckte Dateien sind gesperrt.
