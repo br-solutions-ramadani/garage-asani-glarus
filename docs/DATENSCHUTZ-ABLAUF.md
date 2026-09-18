@@ -74,4 +74,4 @@ Das ist keine gemeinsame Löschfrist für sämtliche Cloudflare-Daten. Zusätzli
 - FormSubmit-Anbieterantwort, Vertragsgrundlage und Verarbeitungsstaaten.
 - Cloudflare-Domain-Tarif und anwendbare Aufbewahrung, Exporte, frühere Worker-Logs und weitere Anbieter-Verarbeitung. Deaktivierte Worker-Observability und vorhandene Sicherheitsereignisse mit IP-Angaben sind anhand der Nutzer-Screenshots bestätigt.
 
-Es wurden im Rahmen dieser Vorbereitung keine Kundendaten gelöscht und keine Nachrichten an Anbieter oder Kunden versendet.
+Im Rahmen der Vorbereitung wurden keine Kundendaten gelöscht und keine Datenschutzanfragen an Anbieter oder Kunden versendet. Beim anschliessend freigegebenen Funktionstest wurde genau eine technische Formularanfrage ohne Kundendaten übermittelt. FormSubmit antwortete mit „Check Your Email“ und einer Aufforderung zur Aktivierung; laut Antwort wurde eine Aktivierungsmail versandt. Der Eingang im GMX-Postfach ist nicht geprüft. Details und nächster Schritt stehen in `docs/UEBERGABE.md`.
